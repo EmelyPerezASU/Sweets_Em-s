@@ -271,7 +271,96 @@ const cart =[];
     cart = [];
     
    
+    // Add to cart
+    obj.addItemToCart = function(pn1,pn2,pn3) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart[item].count ++;
+          saveCart();
+          return;
+        }
+      }
+      var item = new Item(pn1,pn2,pn3);
+      cart.push(item);
+      saveCart();
+    }
+    // Set count from item
+    obj.setCountForItem = function(pn1,pn2,pn3) {
+      for(var i in cart) {
+        if (cart[i].name === name) {
+          cart[i].count = count;
+          break;
+        }
+      }
+    };
+    // Remove item from cart
+    obj.removeItemFromCart = function(pn1,pn2,pn3) {
+        for(var item in cart) {
+          if(cart[item].name === name) {
+            cart[item].count --;
+            if(cart[item].count === 0) {
+              cart.splice(item, 1);
+            }
+            break;
+          }
+      }
+      saveCart();
+    }
+  
+    // Remove all items from cart
+    obj.removeItemFromCartAll = function(pn1,pn2,pn3) {
+      for(var item in cart) {
+        if(cart[item].name === name) {
+          cart.splice(item, 1);
+          break;
+        }
+      }
+      saveCart();
+    }
+  
+    // Clear cart
+    obj.clearCart = function() {
+      cart = [];
+      saveCart();
+    }
+  
+    // Count cart 
+    obj.totalCount = function() {
+      var totalCount = 0;
+      for(var item in cart) {
+        totalCount += cart[item].count;
+      }
+      return totalCount;
+    }
+  
+    // Total cart
+    obj.totalCart = function() {
+      var totalCart = 0;
+      for(var item in cart) {
+        totalCart += cart[item].price * cart[item].count;
+      }
+      return Number(totalCart.toFixed(2));
+    }
+  
+    // List cart
+    obj.listCart = function() {
+      var cartCopy = [];
+      for(i in cart) {
+        item = cart[i];
+        itemCopy = {};
+        for(p in item) {
+          itemCopy[p] = item[p];
+  
+        }
+        itemCopy.total = Number(item.price * item.count).toFixed(2);
+        cartCopy.push(itemCopy)
+      }
+      return cartCopy;
+    }
   */
+  
+  
+
 
     const products = [
         {
@@ -290,7 +379,6 @@ const cart =[];
             price: 5.99
         }
     ];
-    cart = [];
     
     // Cart data structure
     let cart = {
@@ -373,6 +461,17 @@ const cart =[];
 
 
 // light/dark mode functions
+function toggleImage() {
+    let img = document.getElementById("image");
+    
+    if (img.src.endsWith("")) {
+        img.src = "images/lou-pines-logo.png";
+    } else {
+        img.src = "images/sunny.png";
+    }
+    return false;
+}
+    
 function toggleMode() {
     let body = document.getElementsByTagName("body")[0];
     

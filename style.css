@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Molle&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
 :root{
---width:1280px;
+
 --font-size:20px;
 --background-color:#F2EEEB;
 --light-blue:#A8B9BF;
@@ -30,8 +30,8 @@
 header, main, footer{
 	width: 100%;
 	padding: 16px;
-	max-width: calc(1280px - 32px);
-	margin: 0 auto;
+	max-width: calc(1280px - 28px);
+	margin: 0% auto;
 }
 
 header{
@@ -72,7 +72,7 @@ body{
  #skip{
     position:absolute;
     color: transparent;
-    margin-left:-50px;
+    margin: left -500px;
     transform:translateY(-100%);
     font-family: var(--other-font);
     margin-top:0px;
@@ -81,9 +81,10 @@ body{
 }
 
 h1{
-    color: black;
+    color:#A4A66F;
     font-family: var(--heading-font);
-
+    font-weight: bold;
+    font-size:2em;
 }
 h2{
     font-size:2.0rem;
@@ -112,19 +113,33 @@ p{
 }
 
 /*----------------------------------nav---menu------------------------------------------------*/ 
-
-nav ul {
-    display: flex;
-   
+nav{
+  
     padding-top: 50px;
     padding-left: 0px;
     padding-left: -20px;
+    
+}
+nav ul {
+    display: flex;
+   background-color: var(--lightskin-color);
+   justify-content: space-around;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+   
+    margin: auto 0;
+    
 }
 
 nav ul li {
     list-style-type: none;
-    font-size: 20px;
-    margin-right: 20px;
+    font-size: 12px;
+    align-items: center;
+    align-content: center;
+   margin: auto 0;
+
+   
 }
 
 nav ul li a {
@@ -136,7 +151,7 @@ nav ul li a {
     padding: 5px 10px;
  color: #A4A66F;
     margin: 0 auto;
-    text-align: center;
+    align-content: center;
 }
 nav ul li a:hover {
     filter: drop-shadow(var(--light-purple));
@@ -429,7 +444,7 @@ section1 {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 25px;
     padding: 30px 0;
-    width: min(1200px, 100%);
+    width: min(550px, 100%);
   }
   
   .recipe-container h1 {
@@ -448,7 +463,7 @@ section1 {
   
   .swiper-scrollbar {
     --swiper-scrollbar-bottom: 0;
-    --swiper-scrollbar-drag-bg-color: #dda3b6;
+    --swiper-scrollbar-drag-bg-color:var(--green);
     --swiper-scrollbar-size: 5px;
   }
   
@@ -546,7 +561,7 @@ section1 {
   }
   
   .post-actions-content li:is(:hover, :focus-within) {
-    background-color: rgba(248, 132, 169, 0.7);
+    background-color: var(--green);
   }
   
   .post-actions-link {
@@ -567,7 +582,7 @@ section1 {
     font-size: 1.1rem;
     opacity: 0.65;
     border-radius: 50%;
-    overflow: hidden;
+   
     transition: all 0.35s ease;
   }
   
@@ -596,20 +611,10 @@ section1 {
   
   /* MEDIA QUERIES */
   
-  @media (max-width: 1280px) { 
+  @media (min-width: 1280px) { 
     .swiper {
         width: 80%;
       }
-  }
-  
-  @media (max-width: 900px) {
-    #recipes {
-      padding: 60px 80px;
-    }
-  
-    .swiper {
-      width: 50%;
-    }
   }
   
   @media (max-width: 765px) {
@@ -866,6 +871,7 @@ footer{
 	text-align: center;
 	background-color: var(--lightskin-color);
 	margin-top: 2rem;
+    max-width: 600px;
 
 }
 
@@ -974,6 +980,17 @@ body.dark-mode .contact span, body.light-mode #errorList {
         width: 100%;
        
       }
+
+      .recipe-container {
+        background: rgba(189, 181, 181, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        padding: 30px 0;
+        width: min(1280px, 100%);
+      }
   }
   
   @media (max-width: 900px) {
@@ -1002,16 +1019,17 @@ body.dark-mode .contact span, body.light-mode #errorList {
     }
   }
 
-  @media screen and (max-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     /*-- header -------- desktop ---*/
     .header {
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
 
    .header a img {
-        width: 900px;
+        width: 1280px;
         height: 645px;
         right: 0;
     }
@@ -1027,19 +1045,34 @@ body.dark-mode .contact span, body.light-mode #errorList {
         justify-content: space-around;
         width: auto;
         margin-left: 15px;
+        text-align: center;
+    margin-right: -200px;
+    
+
     }
 
     .nav ul li {
         display: flex;
         flex-direction: row;
-        font-size: 1rem;
+       
         margin-left: 20px;
         margin-bottom: 0px;
+        font-size: 80px;
+    align-items: center;
+    align-content: center;
+
     }
 
     .nav ul li a {
         padding: 20px 40px;
+
     }
+    nav ul li a:hover {
+        filter: drop-shadow(var(--light-purple));
+        background-color: var(--light-purple);
+        color: #DFDFDF;
+    }
+
   }
 
 
