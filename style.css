@@ -876,6 +876,76 @@ footer{
 	}
 }
 
+/* -----------------------------Light/Dark Mode icon ---------------------------------------*/
+
+
+
+
+/* dark Mode */
+body.dark-mode {
+    background-color: #F2AD94;
+    color: #A4A66F;
+}
+
+
+
+
+
+body.dark-mode header nav ul li a {
+    filter: none;
+}
+
+
+
+body.dark-mode .tagline {
+    color: #0D0505;
+    background-color:#735E53;
+}
+
+body.dark-mode .header img {
+    filter: drop-shadow(3px 0px 10px rgb(0, 0, 0));
+}
+
+body.dark-mode .recipe-container {
+    background-color: #735E53;
+}
+
+
+body.dark-mode .contact {
+    background-color: #8C8665;
+}
+
+body.dark-mode .contact h2 {
+    color: black;
+}
+
+body.dark-mode .contact input[type="submit"]:hover {
+    filter: none;
+}
+
+body.dark-mode footer {
+    background-color: #8C8665;
+    color: #222;
+}
+
+body.dark-mode .discount #submitButton:hover {
+    filter: none;
+    background-color: #735E53;
+}
+
+body.dark-mode .contact span, body.light-mode #errorList {
+    color: red;
+}
+
+/* Color of error message for number 'discount' generator */
+#message {
+    color: red;
+}
+
+
+
+
+
 
 /*---------------------------------@media-----------------------*/ 
 
@@ -932,27 +1002,34 @@ footer{
     }
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (max-width: 1280px) {
     /*-- header -------- desktop ---*/
-    header {
+    .header {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
+   .header a img {
+        width: 900px;
+        height: 645px;
+        right: 0;
+    }
+   
+   
     /* --navigation--- desktop ---*/
-    nav {
+    .nav {
         display: block;
     }
 
-    nav ul {
+   .nav ul {
         display: flex;
         justify-content: space-around;
         width: auto;
         margin-left: 15px;
     }
 
-    nav ul li {
+    .nav ul li {
         display: flex;
         flex-direction: row;
         font-size: 1rem;
@@ -960,16 +1037,10 @@ footer{
         margin-bottom: 0px;
     }
 
-    nav ul li a {
+    .nav ul li a {
         padding: 20px 40px;
     }
   }
-
-
-
-
-
-
 
 
 

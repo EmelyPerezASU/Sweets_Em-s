@@ -2,7 +2,7 @@
 
 "use strict"; 
 
-
+/*--contact----*/
 const form = document.getElementById("fullForm");
 
 // function to validate the form
@@ -98,31 +98,6 @@ resetButton.addEventListener("click", () => {
     comments.classList.remove("error");
 });
 
-
-// light/dark mode functions
-function toggleImage() {
-    let img = document.getElementById("image");
-    
-    if (img.src.endsWith("sunny.png")) {
-        img.src = "images/lou-pines-logo.png";
-    } else {
-        img.src = "images/sunny.png";
-    }
-    return false;
-}
-    
-function toggleMode() {
-    let body = document.getElementsByTagName("body")[0];
-    
-    if (body.classList.contains("light-mode")) {
-        body.classList.remove("light-mode");
-        body.classList.add("dark-mode");
-    } else {
-        body.classList.remove("dark-mode");
-        body.classList.add("light-mode");
-    }
-}
-
 // discount generator
 function randomNum() {
     let randNum = Math.floor(Math.random() * 10) + 1;
@@ -143,20 +118,6 @@ function randomNum() {
 
 // event listener for random number generator
 document.getElementById("submitButton").addEventListener("click", randomNum);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -273,3 +234,154 @@ const postActionsControllers = document.querySelectorAll(
         spaceBetween:10,
         },
   });
+
+
+  /*----shop-*/
+
+/*---------------------------------------------------notes------------------------
+const shop = function (){
+    
+}[
+    {
+        name:'Pack of guava macaroons',
+        price: 19.99,
+        quantity:0,
+        productId:pn1,
+        image: 'images/guavaPasteMac.jpg'
+    },
+
+    {
+        name:'Ube Cupcakes',
+        price:25.00,
+        productId:pn2, 
+        image:'images/FigCupcake.jpg'
+    },
+
+    {
+        name:'Fig Cupcakes',
+        price:5.99,
+        productId:pn3,
+        image:'images/FigCupcake.jpg'
+    }
+]
+
+
+const cart =[]; 
+
+    cart = [];
+    
+   
+  */
+
+    const products = [
+        {
+            id: 'pn1',
+            name: 'Pack of guava macaroons',
+            price: 19.99
+        },
+        {
+            id: 'pn2',
+            name: '4 Ube Cupcakes',
+            price: 25.00
+        },
+        {
+            id: 'pn3',
+            name: 'Fig Cupcake',
+            price: 5.99
+        }
+    ];
+    cart = [];
+    
+    // Cart data structure
+    let cart = {
+        items: [],
+        subtotal: 0,
+        tax: 0,
+        shipping: 0,
+        total: 0
+    };
+    
+    // Function to add product to cart
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        
+        if (product) {
+            cart.items.push(product);
+            updateCart();
+        }
+    }
+    
+    // Function to update cart details
+    function updateCart() {
+        const itemsList = document.getElementById('itemsList1');
+        const subtotalElement = document.getElementById('subtotal1').querySelector('span');
+        const taxElement = document.getElementById('tax1').querySelector('span');
+        const shippingElement = document.getElementById('shipping1').querySelector('span');
+        const totalElement = document.getElementById('total1').querySelector('span');
+    
+        // Clear the current cart display
+        itemsList.innerHTML = '';
+    
+        // Update cart items
+        if (cart.items.length > 0) {
+            cart.items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                itemsList.appendChild(li);
+            });
+    
+            // Calculate subtotal
+            cart.subtotal = cart.items.reduce((acc, item) => acc + item.price, 0);
+        } else {
+            itemsList.innerHTML = '<li>Your Cart is Empty</li>';
+        }
+    
+        
+        cart.tax = cart.subtotal * 0.08;
+        cart.shipping = 5.00;
+        cart.total = cart.subtotal + cart.tax + cart.shipping;
+    
+        // Update the displayed values
+        subtotalElement.textContent = `$${cart.subtotal.toFixed(2)}`;
+        taxElement.textContent = `$${cart.tax.toFixed(2)}`;
+        shippingElement.textContent = `$${cart.shipping.toFixed(2)}`;
+        totalElement.textContent = `$${cart.total.toFixed(2)}`;
+    }
+    
+    // Event listeners for the "Add To Cart" buttons
+    document.getElementById('pn1').addEventListener('click', () => addToCart('pn1'));
+    document.getElementById('pn2').addEventListener('click', () => addToCart('pn2'));
+    document.getElementById('pn3').addEventListener('click', () => addToCart('pn3'));
+    
+    // Checkout button functionality (optional)
+    document.getElementById('checkout1').addEventListener('click', () => {
+        if (cart.items.length > 0) {
+            alert('Proceeding to checkout!');
+        
+        } else {
+            alert('Your cart is empty!');
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+// light/dark mode functions
+function toggleMode() {
+    let body = document.getElementsByTagName("body")[0];
+    
+    if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+    } else {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+    }
+}
+
